@@ -1,0 +1,26 @@
+table "public"."teams" {
+  primaryKey = {
+    columns = [
+      "team_id"
+    ]
+    name = "teams_pkey"
+    objectType = primaryKey
+  }
+  columns = (
+    column "team_id" {
+      type = integer
+      null = NOT NULL
+      default = nextval('public.teams_team_id_seq'::regclass)
+    }
+    column "name" {
+      type = character varying(50)
+    }
+    column "city" {
+      type = character varying(50)
+    }
+    column "founded_year" {
+      type = integer
+    }
+  )
+}
+

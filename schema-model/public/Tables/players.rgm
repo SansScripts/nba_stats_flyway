@@ -1,0 +1,36 @@
+table "public"."players" {
+  primaryKey = {
+    columns = [
+      "player_id"
+    ]
+    name = "players_pkey"
+    objectType = primaryKey
+  }
+  columns = (
+    column "player_id" {
+      type = integer
+      null = NOT NULL
+      default = nextval('public.players_player_id_seq'::regclass)
+    }
+    column "name" {
+      type = character varying(50)
+    }
+    column "position" {
+      type = character varying(20)
+    }
+    column "team_id" {
+      type = integer
+    }
+  )
+}
+
+foreignKey "public"."players"."players_team_id_fkey" {
+  columns = [
+    "team_id"
+  ]
+  referencedTable = "public"."teams"
+  referencedColumns = [
+    "team_id"
+  ]
+}
+

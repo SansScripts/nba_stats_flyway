@@ -1,0 +1,19 @@
+databaseType = "PostgreSql"
+name = "nba_stats"
+id = "7d96c5a0-4357-4ac5-b779-af1db98d9f39"
+
+[flywayDesktop]
+developmentEnvironment = "development"
+shadowEnvironment = "shadow"
+schemaModel = "./schema-model"
+
+[redgateCompare]
+filterFile = "filter.rgf"
+
+[flyway]
+mixed = true
+outOfOrder = true
+locations = [ "filesystem:migrations" ]
+validateMigrationNaming = true
+baselineVersion = "001_20230923220950"
+baselineOnMigrate = true

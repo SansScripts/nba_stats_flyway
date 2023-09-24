@@ -1,0 +1,52 @@
+table "public"."games" {
+  primaryKey = {
+    columns = [
+      "game_id"
+    ]
+    name = "games_pkey"
+    objectType = primaryKey
+  }
+  columns = (
+    column "game_id" {
+      type = integer
+      null = NOT NULL
+      default = nextval('public.games_game_id_seq'::regclass)
+    }
+    column "date" {
+      type = date
+    }
+    column "home_team_id" {
+      type = integer
+    }
+    column "away_team_id" {
+      type = integer
+    }
+    column "home_team_score" {
+      type = integer
+    }
+    column "away_team_score" {
+      type = integer
+    }
+  )
+}
+
+foreignKey "public"."games"."games_away_team_id_fkey" {
+  columns = [
+    "away_team_id"
+  ]
+  referencedTable = "public"."teams"
+  referencedColumns = [
+    "team_id"
+  ]
+}
+
+foreignKey "public"."games"."games_home_team_id_fkey" {
+  columns = [
+    "home_team_id"
+  ]
+  referencedTable = "public"."teams"
+  referencedColumns = [
+    "team_id"
+  ]
+}
+
