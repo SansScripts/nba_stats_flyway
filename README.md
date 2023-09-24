@@ -81,10 +81,4 @@ Once the database is set up, you can perform various operations to understand th
 
 Feel free to submit pull requests or open issues to improve the project.
 
-## License
 
-This project is licensed under the MIT License. See the [LICENSE.md](LICENSE.md) file for details.
-
----
-
-Feel free to modify this README to better suit your project's specific needs.
